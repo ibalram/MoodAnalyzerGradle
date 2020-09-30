@@ -4,24 +4,25 @@
 package com.cg;
 
 import org.junit.Test;
-
-import com.cg.MoodAnalyzer;
-
 import static org.junit.Assert.*;
-
-import org.hamcrest.CoreMatchers;
 
 public class MoodAnalyzerTest {
 
 	@Test
-	public void testCheckMoodHappy() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Any Mood");
+	public void testAnalyseMoodSad() {
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Sad Mood");
+		assertEquals("SAD", moodAnalyzer.analyseMood());
+	}
+
+	@Test
+	public void testAnalyseMoodHappy() {
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Happy Mood");
 		assertEquals("HAPPY", moodAnalyzer.analyseMood());
 	}
 
 	@Test
-	public void testCheckMoodSad() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Sad Mood");
-		assertEquals("SAD", moodAnalyzer.analyseMood());
+	public void testAnalyseMoodNull() {
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+		assertEquals("HAPPY", moodAnalyzer.analyseMood());
 	}
 }
