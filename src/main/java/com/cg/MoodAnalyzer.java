@@ -3,6 +3,8 @@
  */
 package com.cg;
 
+import com.cg.MoodAnalysisException.ExceptionType;
+
 public class MoodAnalyzer {
 	private String message;
 
@@ -13,12 +15,13 @@ public class MoodAnalyzer {
 		this.message = message;
 	}
 
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException {
 		try {
+			if (message.length() == 0)
+				throw new MoodAnalysisException("Please enter proper message", ExceptionType.ENTERED_EMPTY);
 			return message.toLowerCase().contains("sad") ? "SAD" : "HAPPY";
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-			return "HAPPY";
+		} catch (NullPointerException e) {
+			throw new MoodAnalysisException("Please enter proper message", ExceptionType.ENTERED_NULL);
 		}
 	}
 }

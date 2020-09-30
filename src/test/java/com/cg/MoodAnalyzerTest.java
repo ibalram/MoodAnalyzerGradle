@@ -10,19 +10,41 @@ public class MoodAnalyzerTest {
 
 	@Test
 	public void testAnalyseMoodSad() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Sad Mood");
-		assertEquals("SAD", moodAnalyzer.analyseMood());
+		try {
+			MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Sad Mood");
+			assertEquals("SAD", moodAnalyzer.analyseMood());
+		} catch (MoodAnalysisException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testAnalyseMoodHappy() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Happy Mood");
-		assertEquals("HAPPY", moodAnalyzer.analyseMood());
+		try {
+			MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Happy Mood");
+			assertEquals("HAPPY", moodAnalyzer.analyseMood());
+		} catch (MoodAnalysisException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testAnalyseMoodNull() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
-		assertEquals("HAPPY", moodAnalyzer.analyseMood());
+		try {
+			MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+			assertEquals("HAPPY", moodAnalyzer.analyseMood());
+		} catch (MoodAnalysisException e) {
+			System.out.println(e.type + ": " + e.getMessage());
+		}
+	}
+
+	@Test
+	public void testAnalyseMoodEmpty() {
+		try {
+			MoodAnalyzer moodAnalyzer = new MoodAnalyzer("");
+			assertEquals("HAPPY", moodAnalyzer.analyseMood());
+		} catch (MoodAnalysisException e) {
+			System.out.println(e.type + ": " + e.getMessage());
+		}
 	}
 }
