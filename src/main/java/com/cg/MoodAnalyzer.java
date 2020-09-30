@@ -4,7 +4,16 @@
 package com.cg;
 
 public class MoodAnalyzer {
-	public String analyseMood(String message) {
+	private String message;
+
+	public MoodAnalyzer() {
+	}
+
+	public MoodAnalyzer(String message) {
+		this.message = message;
+	}
+
+	public String analyseMood() {
 		return message.toLowerCase().contains("sad") ? "SAD" : "HAPPY";
 	}
 }

@@ -15,13 +15,13 @@ public class MoodAnalyzerTest {
 
 	@Test
 	public void testCheckMoodHappy() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-		assertEquals("HAPPY", moodAnalyzer.analyseMood("I'm in Any Mood"));
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Any Mood");
+		assertEquals("HAPPY", moodAnalyzer.analyseMood());
 	}
 
 	@Test
 	public void testCheckMoodSad() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-		assertEquals("SAD", moodAnalyzer.analyseMood("I'm in Sad Mood"));
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I'm in Sad Mood");
+		assertEquals("SAD", moodAnalyzer.analyseMood());
 	}
 }
